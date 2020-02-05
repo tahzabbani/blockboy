@@ -1,6 +1,33 @@
 #game {
-    border: solid black 3px;
+    border: solid #5f6b61 3px;
     display: block;
-    margin: 150px auto 50px auto;
+    margin: 50px auto 50px auto;
     padding: 0;
+    background-color: #dcf0f7;
+}
+
+#score {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+}
+
+#prompt {
+    text-align: center;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+}
+
+footer {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: #0c2c52;
+    color: white;
 }

@@ -1,4 +1,5 @@
 var cvs = document.getElementById("game");
+var score = document.getElementById("score");
 var ctx = cvs.getContext("2d");
 
 const keyUp = 38;
@@ -20,6 +21,7 @@ var pipeLength = 500;
 var blockWidth = 50;
 var blockHeight = 50;
 var nextPipeSpawnDistance = 300;
+var scoreCount = 0;
 
 // here because image wouldn't load and it confused me for a while
 block.onload = draw;
@@ -88,6 +90,11 @@ function draw() {
             });
         }
 
+        if (topPipeCoordinates[i].x == 10) {
+            scoreCount += 1;
+            score.textContent = scoreCount;
+        }
+
         /*
          * collision detection (long disgusting if-statement)
          * maybe a better way to do this but this does the job
@@ -101,8 +108,10 @@ function draw() {
             (blockX >= topPipeCoordinates[i].x && blockX < (topPipeCoordinates[i].x + pipeWidth) &&
                 blockY <= (topPipeCoordinates[i].y + pipeLength))
         ) {
-            console.log("hit");
-            location.reload();
+            speed = 0;
+            ctx.font = "bold 40px Arial";
+            ctx.strokeText("DEATH", (cvs.width / 2) - 60, (cvs.height / 2));
+            setTimeout(function() { location.reload(); }, 500); // pause for 0.5 seconds to display death screen
         }
     }
     update();
